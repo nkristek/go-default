@@ -8,4 +8,4 @@ A default go project with support for [Travis-CI](https://travis-ci.com/) and [C
 
 ## Setup
 
-Please make sure to add an environment variable called `COVERALLS_TOKEN` in the Travis-CI settings containing the repo token from [Coveralls.io](https://coveralls.io).
+Please make sure to add an environment variable in the Travis-CI settings called `COVERALLS_TOKEN` containing the repo token from [Coveralls.io](https://coveralls.io).
