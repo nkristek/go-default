@@ -1,18 +1,20 @@
 name: CI
-
 on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-    - name: Install Go
+
+    - name: Install Go 1.13
       uses: actions/setup-go@v1
       with:
-        go-version: 1.12
+        go-version: 1.13
       id: go
+      
+    - name: Checkout
+      uses: actions/checkout@v1
+      
     - name: Get dependencies
       run: |
         go get -v -t -d ./...
@@ -20,7 +22,9 @@ jobs:
             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
             dep ensure
         fi
+        
     - name: Build
       run: go build -v .
+      
     - name: Test
       run: go test -v .
